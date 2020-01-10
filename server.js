@@ -11,6 +11,7 @@ const app = express();
 
 // Import Index Router
 const indexRouter = require('./routers/index');
+const officeRouter = require('./routers/offices');
 
 // Setting View Engine To Be EJS
 app.set('view engine', 'ejs');
@@ -35,6 +36,8 @@ db.once('open', () => console.log('connected to mongoDB :) '));
 
 // Index Router
 app.use('/', indexRouter);
+// Offices Router
+app.use('/offices', officeRouter);
 
 
 app.listen(process.env.PORT || 3000, ()=> console.log('Server is running...'));
